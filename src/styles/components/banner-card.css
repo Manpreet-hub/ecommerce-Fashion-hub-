@@ -1,0 +1,25 @@
+.main-section{
+    display: flex;
+    justify-content: center;
+    background-image: url(../../assets/images/banner-img.jpg);
+    background-size: cover;
+    height: 90vh;
+    font-size: 1.5rem;
+}
+
+.title{
+    margin-top: 5rem;
+    color: var(--voilet-color);
+    font-weight: 550;
+}
+
+.hero-container p{
+    color: white;
+}
+
+.shop-btn{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}

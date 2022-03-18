@@ -1,0 +1,39 @@
+
+.feature-container{
+    padding: 0 1rem;
+}
+
+.title-underline{
+    background-color: var(--voilet-color);
+    width: 12rem;
+    height: 0.24rem;
+    margin: 0.2rem auto 2rem;
+}
+
+.grid-3-column-layout{
+    margin-left: 5rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+}
+
+.grid-5-column-layout{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(5,1fr);
+    width: 100%; 
+}
+
+.product-img{
+    height: 80%;
+}
+
+.card{
+    height: 70%;
+}
+.card :hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    z-index: 1;
+}
