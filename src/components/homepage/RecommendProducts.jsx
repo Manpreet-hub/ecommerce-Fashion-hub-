@@ -1,15 +1,6 @@
 import "../../styles/components/RecommendProducts.css";
-import brandArmani from "../../assets/images/armani.jpg";
-import brandGucci from "../../assets/images/gucci.jpg";
-import brandNorthFace from "../../assets/images/northFace.jpg";
-
-import suit from "../../assets/images/suit.jpg";
-import whiteShirt from "../../assets/images/man-white-shirt.jpg";
-import dress from "../../assets/images/dress.jpg";
-import jeans from "../../assets/images/blue-jeans.jpg";
-import tShirt from "../../assets/images/black-t-shirt.jpg";
-
-
+import {staticBrandData} from "../../constant/data.js";
+import {staticCategory} from "../../constant/data.js";
 
 const RecommendProducts=()=>{
     return(<>
@@ -18,32 +9,18 @@ const RecommendProducts=()=>{
         <div className="title-underline"></div>
         <div className="v-spacer-2rem"></div>  
         <div className="grid-5-column-layout">
-        <div className="card">
-                <img className="card-img product-img img img-round" src={suit} alt="product-img"/>
-                <p class="p para-md">Suits</p>
-            </div> 
-            <div className="card">
-                <img className="card-img product-img img img-round" src={tShirt} alt="product-img"/>
-                <p class="p para-md">T-Shirts</p>
-            </div> 
-
-            <div className="card">
-                <img className="card-img product-img img img-round" src={whiteShirt} alt="product-img"/>
-                <p class="p para-md">Shirts</p>
-            </div> 
-
-            <div className="card">
-                <img className="card-img product-img img img-round" src={dress} alt="product-img"/>
-                <p class="p para-md">Dresses</p>
-            </div> 
-
-            <div className="card">
-                <img className="card-img product-img img img-round" src={jeans} alt="product-img"/>
-                <p class="p para-md">Jeans</p>
-            </div> 
+    
+        {
+            staticCategory.map((productCategory,index)=>{
+                return(
+                    <div className="card">
+                <img key={index} className="card-img product-img img img-round" src={productCategory.img} alt="product-img"/>
+                <p class="p para-md">{productCategory.category}</p>
+            </div>
+                )  
+            })
+        }
         </div>
-
-
 
     </div>
     <div className="feature-container">
@@ -52,19 +29,16 @@ const RecommendProducts=()=>{
         <div className="v-spacer-2rem"></div>
 
         <div className="grid-3-column-layout">
-
-            <div className="card">
-                <img className="card-img" src={brandArmani} alt="product-img"/>
-            </div>
-            <div className="card">
-                <img className="card-img" src={brandGucci} alt="product-img"/>
-            </div>
-            <div className="card">
-                <img className="card-img" src={brandNorthFace} alt="product-img"/>
-            </div>
+        {staticBrandData.map((BrandImg,index)=>{
+            return(
+                <div key={index}className="card">
+                <img className="card-img" src={BrandImg.img} alt="product-img"/>
+            </div> 
+            )
+        })}
         </div>
     </div>
-
+  
     <div className="v-space-3rem"></div>
     <div className="v-space-3rem"></div>
     </>)
