@@ -15,7 +15,7 @@ const RecommendProducts=()=>{
                 return(
                     <div className="card">
                 <img key={index} className="card-img product-img img img-round" src={productCategory.img} alt="product-img"/>
-                <p class="p para-md">{productCategory.category}</p>
+                <p className="p para-md">{productCategory.category}</p>
             </div>
                 )  
             })
