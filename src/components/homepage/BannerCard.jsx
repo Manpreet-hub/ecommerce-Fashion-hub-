@@ -1,4 +1,5 @@
 import "../../styles/components/banner-card.css";
+import { Link } from "react-router-dom";
 
 const BannerCard=()=>{
     return (
@@ -7,8 +8,8 @@ const BannerCard=()=>{
         <div className="hero-container">
             <h1 className="title">Fashion-hub Sale</h1>
             <p>UPTO 50% OFF on various products</p>
-            <a href="/pages/products/products.html" className="shop-btn"><button className="btn-default btn-primary">Shop
-                    Now</button></a>
+            <Link to="/products" className="shop-btn"><button className="btn-default btn-primary">Shop
+                    Now</button></Link>
         </div>
     </main>
 
