@@ -3,7 +3,8 @@ import { useProductFilters } from "../contexts/filter-context";
 const Filters=()=>{
 
     const {filterState, filterDispatch}=useProductFilters();
-    const {clear,sortBy,category,price}=filterState;
+    const {clear,sortBy,price}=filterState;
+    const categories=["Men","Women","Kids"];
 
     return(
         <div className="sidebar-container">
@@ -32,27 +33,24 @@ const Filters=()=>{
         <div className="container-box">
             <h3>Category</h3>
 
-            <div className="category">
-                <input id="men" type="checkbox" value="men" checked={category.includes("men")}  onClick={(e)=>{filterDispatch({type:"CATEGORY", payload: e.target.value})}}/>
-                <label htmlFor="men">Men Clothing</label>
+            {
+                categories.map((category)=>{
+                    return(
+                        <div className="category"key={category}>
+                        <input id="women" type="checkbox" value={category} checked={filterState.category.includes(category)}  onClick={(e)=>{filterDispatch({type:"CATEGORY", payload: e.target.value})}}/>
+                        <label htmlFor="women">{category} Clothing</label>
             </div>
+                    )
+                })
+            }
 
-            <div className="category">
-                <input id="women" type="checkbox" value="women" checked={category.includes("women")}  onClick={(e)=>{filterDispatch({type:"CATEGORY", payload: e.target.value})}}/>
-                <label htmlFor="women">Women Clothing</label>
-            </div>
-
-            <div className="category">
-                <input id="kids" type="checkbox" value="kids" checked={category.includes("kids")} onClick={(e)=>{filterDispatch({type:"CATEGORY", payload: e.target.value})}}/>
-                <label htmlFor="kids">Kids Clothing</label>
-            </div>
         </div>
 
         <div className="container-box">
             <h3>Rating</h3>
 
             {
-                [5, 4, 3, 2].map((rating,index)=>{
+                [4, 3, 2,1].map((rating,index)=>{
                     return(
                         <div className="rating-label" key={index}>
                     <input  checked={filterState.rating==rating }  type="radio" name="rating" onClick={(e)=>filterDispatch({type:"RATING", payload:rating})} />
