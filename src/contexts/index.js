@@ -1,0 +1,1 @@
+export {FilterProvider,useProductFilters} from "./filter-context";
