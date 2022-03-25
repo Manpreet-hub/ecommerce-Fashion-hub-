@@ -34,8 +34,8 @@
     height: 70%;
 }
 
-.card{
-    background-color: white !important
+.product-card{
+    background-color: white;
     
 }
 
@@ -43,5 +43,4 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
     gap: 1.5rem;
-    /* padding: 1rem; */
 }
