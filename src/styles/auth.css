@@ -1,0 +1,38 @@
+.auth-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: var(--lynx-white-color);
+    width: 100vw;
+    height: 100vh;
+}
+
+.auth-form{
+    background-color: var(--white-color);
+    padding: 1.5rem 2rem;
+    width: 35%;
+    box-shadow: 0 5px 10px rgb(65, 64, 64);
+}
+
+.user-input{
+    border: 2px solid var(--lynx-grey-color);
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    outline: none;
+    margin: 5px 0px 2rem 0px;
+    width: 100%;
+}
+
+.label{
+    margin:0 0 10px 0px;
+}
+
+.login-signup{
+    width: 95% !important
+}
+
+.create{
+    text-align: center;
+    margin-top: 1.5rem;
+}

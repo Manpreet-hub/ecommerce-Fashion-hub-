@@ -1,9 +1,11 @@
-import "../../styles/components/header.css" 
+import "../../styles/components/header.css";
+import { Link } from "react-router-dom";
+
 
 const Header=()=>{
-    return (<>
+    return (
       <div className="navbar">
-        <div className="nav-title">Fashion-hub</div>
+        <div className="nav-title"><Link to="/">Fashion-hub</Link></div>
         <div className="search-box">
             <i className="search-icon fas fa-search" aria-hidden="true"></i>
             <input className="search-bar" type="text" placeholder="Search"/>
@@ -11,15 +13,15 @@ const Header=()=>{
 
         <div className="navbar-section">
             <ul className="nav-icons">
-                <li><a className="navbar-links" href="/pages/signup-login/login.html"/>Login</li>
+                <li><Link to="/login" className="navbar-links" >Login </Link></li>
                 <div className="h-space-1rem"></div>
-                <li><a className="navbar-links" href="/pages/wishlist/wishlist.html">
+                <li><Link to="" className="navbar-links" >
                         <div className="badge-container">
                             <i className="fas fa-heart">
                                 <span className="badge-icon">0</span>
                             </i>
                         </div>
-                   </a> </li>
+                   </Link> </li>
                 <div className="h-space-1rem"></div>
 
                 <li><a className="navbar-links" href="/pages/cart/cart.html">
@@ -32,7 +34,7 @@ const Header=()=>{
             </ul>
         </div>
     </div>
-    </>)
+   )
 }
 
 export {Header};
