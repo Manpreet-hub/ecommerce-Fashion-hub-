@@ -1,8 +1,9 @@
 import "../../styles/components/header.css";
 import { Link } from "react-router-dom";
-
+import {useCart} from "../../contexts/";
 
 const Header=()=>{
+    const {cartState: {cart}}=useCart();
     return (
       <div className="navbar">
         <div className="nav-title"><Link to="/">Fashion-hub</Link></div>
@@ -24,13 +25,13 @@ const Header=()=>{
                    </Link> </li>
                 <div className="h-space-1rem"></div>
 
-                <li><a className="navbar-links" href="/pages/cart/cart.html">
+                <li><Link className="navbar-links" to="/cart">
                         <div className="badge-container">
                             <i className="fas fa-shopping-cart">
-                                <span className="badge-icon">0</span>
+                                <span className="badge-icon">{cart.length}</span>
                             </i>
                         </div>
-                    </a></li>
+                    </Link></li>
             </ul>
         </div>
     </div>

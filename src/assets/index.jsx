@@ -8,4 +8,6 @@ import dress from "../assets/images/dress.jpg";
 import jeans from "../assets/images/blue-jeans.jpg";
 import tShirt from "../assets/images/black-t-shirt.jpg";
 
-export {brandArmani,brandGucci,brandNorthFace,suit,whiteShirt,dress,jeans,tShirt};
+import emptyCart from "../assets/images/emptyCart.jpg";
+
+export {brandArmani,brandGucci,brandNorthFace,suit,whiteShirt,dress,jeans,tShirt,emptyCart};

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import { CartProvider } from "./contexts/cart-context";
 import { FilterProvider } from "./contexts/filter-context";
 import { makeServer } from "./server";
 
@@ -11,9 +12,11 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <CartProvider>
       <FilterProvider>
         <App />
       </FilterProvider>
+      </CartProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
