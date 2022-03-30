@@ -14,7 +14,7 @@ const ProductCard=({product})=>{
                     <p >Rating : {rating}</p>
 
                     {
-                        cart.some(p=>p.id === product.id) ?(
+                        cart.some(cartItem=>cartItem.id === product.id) ?(
                             <button className="btn-default btn-primary" onClick={()=>cartDispatch({
                                 type:"REMOVE_FROM_CART",
                                 payload: product
