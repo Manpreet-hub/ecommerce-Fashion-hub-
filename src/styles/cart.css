@@ -1,7 +1,6 @@
 .cart-container{
     padding: 5rem 0;
     height: 100vh;
-    /* background-color: var(--lynx-white-color); */
 }
 
 .cart{
@@ -45,10 +44,9 @@
     width: 18%;
     padding: 2rem;
     background-color: var(--white-color);
-    /* display: flex; */
     position: fixed;
     right: 10%;
-   top:10%
+    top:10%
 }
 
 .product-card{

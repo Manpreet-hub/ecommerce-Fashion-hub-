@@ -8,8 +8,6 @@ const useCart=()=>useContext(CartContext);
 const CartProvider=({children})=>{
     
     const [cartState,cartDispatch]=useReducer(cartReducer,cartInitialState);
-    console.log(cartState)
-
     return(
         <CartContext.Provider value={{cartState,cartDispatch}}>
             {children}

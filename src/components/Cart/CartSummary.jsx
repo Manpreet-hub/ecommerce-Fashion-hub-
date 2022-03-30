@@ -8,7 +8,6 @@ const CartSummary=()=> {
     const deliveryCharges=100;
     const finalAmt=totalAmt+deliveryCharges;
 
-    console.log(totalAmt);
   return (
     <div class="billing-details">
     <h2>PRICE DETAILS</h2>

@@ -14,7 +14,6 @@ const CartItem = ({ item }) => {
                             <img className="card-img product-img" src={item.img} alt="product-img" />
                             <div className="card-body">
                                 <h4 className="card-title"> {item.title}</h4>
-                                {/* <p className="card-text">Peter England Men's Notch Lapel Slim Blazer.</p> */}
                                 <p>₹{item.price}</p>
                                 <div className="quantity">
                                     <p><label>Quantity:</label></p>
