@@ -1,9 +1,12 @@
 import React from 'react'
 import { useCart } from '../../contexts/cart-context'
+import { useWishList } from '../../contexts/wishlist-context';
 
 const CartItem = ({ item }) => {
     const { cartState, cartDispatch } = useCart();
     const { cart } = cartState;    
+    const {wishlistState,wishlistDispatch}=useWishList();
+
     return (
         <>
 
@@ -25,7 +28,9 @@ const CartItem = ({ item }) => {
                                 </div>
 
                                 <button className="btn-default cart-btn" onClick={() => cartDispatch({ type: "REMOVE_FROM_CART", payload: item._id })}>Remove from cart</button>
-                                <button className="btn-default btn-dark cart-btn">Move to wishlist</button>
+                                <button className="btn-default btn-dark cart-btn" onClick={()=> {wishlistDispatch({type:"ADD_TO_WISHLIST" ,payload: item});
+                                cartDispatch({type: "REMOVE_FROM_CART", payload:item._id})
+                            }} >Move to wishlist</button>
 
                             </div> </div>
 
