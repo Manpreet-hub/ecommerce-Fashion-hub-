@@ -51,9 +51,18 @@
 
 .product-card{
     height: 500px;
-    width: 40%;
 }
 
 .empty-card-img{
     height: 300px;
+}
+
+.product-card-btn{
+    display: flex;
+
+}
+
+.card-btn{
+    padding: 10px;
+    margin-right: 1rem;
 }

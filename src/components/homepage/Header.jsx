@@ -1,9 +1,10 @@
 import "../../styles/components/header.css";
 import { Link } from "react-router-dom";
-import {useCart} from "../../contexts/";
+import {useCart,useWishList} from "../../contexts/";
 
 const Header=()=>{
     const {cartState: {cart}}=useCart();
+    const {wishlistState: {wishlist}}=useWishList();
     return (
       <div className="navbar">
         <div className="nav-title"><Link to="/">Fashion-hub</Link></div>
@@ -16,10 +17,10 @@ const Header=()=>{
             <ul className="nav-icons">
                 <li><Link to="/login" className="navbar-links" >Login </Link></li>
                 <div className="h-space-1rem"></div>
-                <li><Link to="" className="navbar-links" >
+                <li><Link to="/wishlist" className="navbar-links" >
                         <div className="badge-container">
                             <i className="fas fa-heart">
-                                <span className="badge-icon">0</span>
+                                <span className="badge-icon">{wishlist.length}</span>
                             </i>
                         </div>
                    </Link> </li>

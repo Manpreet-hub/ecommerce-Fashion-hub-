@@ -32,8 +32,4 @@
 .card{
     height: 70%;
 }
-.card :hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    z-index: 1;
-}
+    
