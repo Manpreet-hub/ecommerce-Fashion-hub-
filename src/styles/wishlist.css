@@ -6,7 +6,9 @@
 
 .cross-icon{
     position: relative;
-    left: 10rem;
+    left: 11em;
+    top: -13rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 

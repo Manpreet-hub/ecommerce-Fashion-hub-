@@ -5,6 +5,11 @@
     font-size: 1.4rem;
 }
 
+.badge-icon{
+    position: relative;
+    top: -12px;
+}
+
 .search-box{
     display: flex;
     background-color: var(--white-color);

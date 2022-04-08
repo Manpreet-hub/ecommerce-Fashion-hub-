@@ -1,6 +1,7 @@
 
 .feature-container{
     padding: 0 1rem;
+    cursor: pointer;
 }
 
 .title-underline{
@@ -32,4 +33,7 @@
 .card{
     height: 70%;
 }
-    
+
+.catergory-product{
+    padding: 2rem;
+}
