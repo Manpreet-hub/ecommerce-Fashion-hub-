@@ -2,12 +2,19 @@ import brandArmani from "../assets/images/armani.jpg";
 import brandGucci from "../assets/images/gucci.jpg";
 import brandNorthFace from "../assets/images/northFace.jpg";
 
-import suit from "../assets/images//suit.jpg";
-import whiteShirt from "../assets/images/man-white-shirt.jpg";
+import womenDress from "../assets/images/women-dress.jpg";
+import menShirt from "../assets/images/men-shirt.jpg";
 import dress from "../assets/images/dress.jpg";
-import jeans from "../assets/images/blue-jeans.jpg";
-import tShirt from "../assets/images/black-t-shirt.jpg";
-
 import emptyCart from "../assets/images/emptyCart.jpg";
+import kids from "../assets/images/kids.jpg";
 
-export {brandArmani,brandGucci,brandNorthFace,suit,whiteShirt,dress,jeans,tShirt,emptyCart};
+export {
+  brandArmani,
+  brandGucci,
+  brandNorthFace,
+  womenDress,
+  menShirt,
+  dress,
+  emptyCart,
+  kids,
+};
