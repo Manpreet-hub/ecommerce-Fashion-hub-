@@ -6,9 +6,9 @@ import { Router } from "./components/routes/Router";
 function App() {
   return (
     <div className="App">
-    <Header/>
-    <Router/>
-   </div>
+      <Header />
+      <Router />
+    </div>
   );
 }
 

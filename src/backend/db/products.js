@@ -17,6 +17,7 @@ export const products = [
     rating: 4,
     originalPrice: 4000,
   },
+
   {
     _id: uuid(),
     title: " Cotton Printed suit with Palazzo & Dupatta Set",
@@ -38,6 +39,17 @@ export const products = [
     fastDelivery: true,
     rating: 4,
     originalPrice: 3000,
+  },
+  {
+    _id: uuid(),
+    title: "Bon Organik Rang Barse Holi Tshirt For Boys",
+    img: "https://res.cloudinary.com/dffedqurw/image/upload/v1649316236/samples/61EW3tDSMaL._AC_UL480_FMwebp_QL65__gi6tmk.webp",
+    price: 2199,
+    category: "kids",
+    inStock: true,
+    fastDelivery: true,
+    rating: 4,
+    originalPrice: 3200,
   },
   {
     _id: uuid(),
@@ -105,5 +117,4 @@ export const products = [
     rating: 2,
     originalPrice: 1200,
   },
-
 ];
