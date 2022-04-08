@@ -1,4 +1,4 @@
-export { ProductCard } from "./ProductCard";
-export {Filters} from "./Filters";
-export {CartItem} from "./Cart/CartItem";
-export {CartSummary} from "./Cart/CartSummary";
+export { ProductCard } from "./ProductCard/ProductCard";
+export { Filters } from "./Filters/Filters";
+export { CartItem } from "./Cart/CartItem";
+export { CartSummary } from "./Cart/CartSummary";
