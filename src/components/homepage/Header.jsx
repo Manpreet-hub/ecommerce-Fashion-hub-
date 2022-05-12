@@ -30,8 +30,10 @@ const Header = () => {
           <li>
             <Link to="/wishlist" className="navbar-links">
               <div className="badge-container">
-                <i className="fas fa-heart">
-                  <span className="badge-icon">{wishlist.length}</span>
+                <i className="far fa-heart">
+                  <span className="badge-icon status-badge-offline status-badgestatus-badge-offline status-badge">
+                    {wishlist.length}
+                  </span>
                 </i>
               </div>
             </Link>
@@ -41,8 +43,10 @@ const Header = () => {
           <li>
             <Link className="navbar-links" to="/cart">
               <div className="badge-container">
-                <i className="fas fa-shopping-cart">
-                  <span className="badge-icon">{cart.length}</span>
+                <i className="far fa-shopping-cart">
+                  <span className="badge-icon status-badge-offline status-badge">
+                    {cart.length}
+                  </span>
                 </i>
               </div>
             </Link>
