@@ -4,14 +4,15 @@ import { useCart, useWishList } from "../../contexts";
 const WishlistProducts = () => {
   const { wishlistState, wishlistDispatch } = useWishList();
   const { wishlist } = wishlistState;
-  const { cartDispatch } = useCart();
-  console.log(wishlist);
+  const { cartState, cartDispatch } = useCart();
+  const { cart } = cartState;
+
   return (
     <>
       <div className="wishlist-container ">
         <h2 className="txt-center">My wishlist {wishlist.length}</h2>
 
-        {wishlist.map((item) => {
+        {wishlistState.wishlist.map((item) => {
           return (
             <div className="wishList-col ">
               <div className="card product-card">
@@ -32,21 +33,35 @@ const WishlistProducts = () => {
                   alt="product-img"
                 />
                 <div className="card-body">
-                  <h3 className="card-title">{item.title}</h3>
-                  <p>{item.price}</p>
-                  <p>Rating : {item.rating}</p>
-                  <button
-                    className="btn-default btn-primary-solid"
-                    onClick={() => {
-                      cartDispatch({ type: "ADD_TO_CART", payload: item });
-                      wishlistDispatch({
-                        type: "REMOVE_FROM_WISHLIST",
-                        payload: item._id,
-                      });
-                    }}
-                  >
-                    <Link to="/cart">Go to Cart</Link>
-                  </button>
+                  <h3 className="card-title card-text">{item.title}</h3>
+                  <div className="flex-row space-between">
+                    <p className="card-text">
+                      ₹{item.price}{" "}
+                      <s className="price-strike"> ₹{item.originalPrice}</s>
+                    </p>
+
+                    <p className="card-rating">{item.rating} ⭐</p>
+                  </div>
+
+                  {cartState.cart.some(
+                    (cartItem) => cartItem.id === item.id
+                  ) ? (
+                    <button className="btn-default btn-primary-solid cart-btn">
+                      <Link to="/cart">Go to cart</Link>
+                    </button>
+                  ) : (
+                    <button
+                      className="btn-default btn-dark cart-btn"
+                      onClick={() =>
+                        cartDispatch({
+                          type: "ADD_TO_CART",
+                          payload: item,
+                        })
+                      }
+                    >
+                      Move to Cart
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,38 +1,54 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Login=()=>{
+const Login = () => {
+  return (
+    <div className="auth-container">
+      <div className="auth-form">
+        <h2 className="txt-header-color txt-center">LOGIN</h2>
+        <form>
+          <label htmlFor="email" className="label">
+            Email address
+          </label>
+          <input
+            required
+            id="email"
+            className="user-input"
+            type="email"
+            placeholder="Enter your Email"
+          />
 
-    return(
-        <div className="auth-container">
-        <div className="auth-form">
-            <h2 className="txt-header-color txt-center">LOGIN</h2>
-            <form>
+          <label htmlFor="password" className="label">
+            Password
+          </label>
+          <input
+            required
+            id="password"
+            className="user-input"
+            type="password"
+            placeholder="Enter Password"
+          />
 
-                <label htmlFor="email" className="label">Email address</label>
-                <input id="email" className="user-input" type="email" placeholder="Enter your Email" />
+          <div className="user-info flex-row space-between">
+            <div>
+              <input type="checkbox" /> Remember me
+            </div>
+            <Link to="/">Forgot password?</Link>
+          </div>
 
-                <label htmlFor="password" className="label">Password</label>
-                <input id="password" className="user-input" type="password" placeholder="Enter Password"  />
+          <button
+            type="submit"
+            className="btn-default  btn-primary login-signup"
+          >
+            Login
+          </button>
 
-                <div className="user-info flex-row space-between">
-                    <div>
-                        <input type="checkbox"/> Remember me
-                    </div>
-                    <Link to="/">Forgot password?</Link>
-                </div>
-
-                <button type="submit" className="btn-default  btn-primary login-signup">Login</button>
-
-                <div className="create">
-                    <Link to="/signup">
-                        Create new account
-                    </Link>
-                </div>
-
-            </form>
-        </div>
+          <div className="create">
+            <Link to="/signup">Create new account</Link>
+          </div>
+        </form>
+      </div>
     </div>
-    )
-}
+  );
+};
 
-export {Login};
+export { Login };
