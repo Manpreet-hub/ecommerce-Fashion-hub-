@@ -1,5 +1,6 @@
 import { useCart, useWishList } from "../../contexts/";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ product }) => {
   const { cartState, cartDispatch } = useCart();
@@ -32,12 +33,16 @@ const ProductCard = ({ product }) => {
             ) : (
               <button
                 className="card-btn btn-primary-solid"
-                onClick={() =>
+                onClick={() => {
                   cartDispatch({
                     type: "ADD_TO_CART",
                     payload: product,
-                  })
-                }
+                  });
+                  toast.success("Product Added to Cart", {
+                    position: "top-right",
+                    autoClose: 2000,
+                  });
+                }}
               >
                 Add to Cart
               </button>
@@ -57,6 +62,10 @@ const ProductCard = ({ product }) => {
                   cartDispatch({
                     type: "REMOVE_FROM_CART",
                     payload: product.id,
+                  });
+                  toast.success("Product Added to Wishlist", {
+                    position: "top-right",
+                    autoClose: 2000,
                   });
                 }}
               >
