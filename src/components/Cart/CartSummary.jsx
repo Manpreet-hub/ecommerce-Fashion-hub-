@@ -14,38 +14,42 @@ const CartSummary = () => {
   const finalAmt = totalAmt + deliveryCharges;
 
   return (
-    <div className="billing-details">
-      <h2>PRICE DETAILS</h2>
-      <hr />
-      <div className="v-space-1rem"></div>
-      <div className="flex-row space-between">
-        <span className="para-md">Price ({totalItem} items) </span>
-        <span>{totalAmt}</span>
-      </div>
-      <div className="v-space-1rem"></div>
-      <div className="flex-row space-between">
-        <span className="para-md">Delivery charges</span>
-        {cart.length === 0 ? <span></span> : <span>{deliveryCharges}</span>}
-      </div>
-      <div className="v-space-1rem"></div>
-      <hr />
-      <div className="v-space-1rem"></div>
-      <div className="flex-row space-between">
-        <span className="para-md">TOTAL AMOUNT</span>
-        {cart.length !== 0 && <span>{finalAmt}</span>}
-      </div>
-      <div className="v-space-1rem"></div>
-      {cart.length === 0 ? (
-        <span className="para-md"></span>
-      ) : (
-        <span className="para-md">You will save Rs.999 on this order</span>
-      )}
-      <div className="v-space-1rem"></div>
+    <>
+      {cart.length !== 0 && (
+        <div className="billing-details">
+          <h2>PRICE DETAILS</h2>
+          <hr />
+          <div className="v-space-1rem"></div>
+          <div className="flex-row space-between">
+            <span className="para-md">Price ({totalItem} items) </span>
+            <span>{totalAmt}</span>
+          </div>
+          <div className="v-space-1rem"></div>
+          <div className="flex-row space-between">
+            <span className="para-md">Delivery charges</span>
+            {cart.length === 0 ? <span></span> : <span>{deliveryCharges}</span>}
+          </div>
+          <div className="v-space-1rem"></div>
+          <hr />
+          <div className="v-space-1rem"></div>
+          <div className="flex-row space-between">
+            <span className="para-md">TOTAL AMOUNT</span>
+            {cart.length !== 0 && <span>{finalAmt}</span>}
+          </div>
+          <div className="v-space-1rem"></div>
+          {cart.length === 0 ? (
+            <span className="para-md"></span>
+          ) : (
+            <span className="para-md">You will save Rs.999 on this order</span>
+          )}
+          <div className="v-space-1rem"></div>
 
-      <button className="btn-default btn-primary-solid cart-btn">
-        Place order
-      </button>
-    </div>
+          <button className="btn-default btn-primary-solid cart-btn">
+            Place order
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 
