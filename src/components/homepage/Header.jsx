@@ -1,14 +1,29 @@
 import "../../styles/components/header.css";
 import { Link } from "react-router-dom";
-import { useCart, useWishList } from "../../contexts/";
+import { useCart, useWishList, useAuth } from "../../contexts/";
+import { toast } from "react-toastify";
 
 const Header = () => {
+  const {
+    authState: { isAuthenticated },
+    authDispatch,
+  } = useAuth();
   const {
     cartState: { cart },
   } = useCart();
   const {
     wishlistState: { wishlist },
   } = useWishList();
+
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    authDispatch({ type: "RESET_AUTH" });
+    toast.success("Logout Successful", {
+      position: "top-right",
+      autoClose: 2000,
+    });
+  };
+
   return (
     <div className="navbar">
       <div className="nav-title">
@@ -22,9 +37,19 @@ const Header = () => {
       <div className="navbar-section">
         <ul className="nav-icons">
           <li>
-            <Link to="/login" className="navbar-links">
-              Login
-            </Link>
+            {isAuthenticated ? (
+              <Link
+                to="/products"
+                className="navbar-links"
+                onClick={logoutHandler}
+              >
+                Logout
+              </Link>
+            ) : (
+              <Link to="/login" className="navbar-links">
+                Login
+              </Link>
+            )}
           </li>
           <div className="h-space-1rem"></div>
           <li>
