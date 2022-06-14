@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart, useWishList } from "../../contexts";
+import { toast } from "react-toastify";
 
 const WishlistProducts = () => {
   const { wishlistState, wishlistDispatch } = useWishList();
@@ -19,12 +20,16 @@ const WishlistProducts = () => {
                 <div className="cross-icon">
                   <i
                     className="far fa-times"
-                    onClick={() =>
+                    onClick={() => {
                       wishlistDispatch({
                         type: "REMOVE_FROM_WISHLIST",
                         payload: item._id,
-                      })
-                    }
+                      });
+                      toast.error("Product Removed from Cart", {
+                        position: "top-right",
+                        autoClose: 2000,
+                      });
+                    }}
                   ></i>
                 </div>
                 <img
@@ -52,12 +57,16 @@ const WishlistProducts = () => {
                   ) : (
                     <button
                       className="btn-default btn-dark cart-btn"
-                      onClick={() =>
+                      onClick={() => {
                         cartDispatch({
                           type: "ADD_TO_CART",
                           payload: item,
-                        })
-                      }
+                        });
+                        toast.success("Product Moved to Cart", {
+                          position: "top-right",
+                          autoClose: 2000,
+                        });
+                      }}
                     >
                       Move to Cart
                     </button>
