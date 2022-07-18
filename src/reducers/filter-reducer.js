@@ -7,6 +7,7 @@ const initialFilterState = {
   sortBy: "",
   category: [],
   product: [],
+  search: "",
 };
 
 const filterReducer = (state, action) => {
@@ -26,6 +27,8 @@ const filterReducer = (state, action) => {
       };
     case "RATING":
       return { ...state, rating: action.payload, clear: false };
+    case "SEARCH_QUERY":
+      return { ...state, search: action.payload };
     case "CLEAR_ALL":
       return {
         ...state,
