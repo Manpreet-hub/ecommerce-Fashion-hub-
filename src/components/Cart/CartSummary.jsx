@@ -1,9 +1,12 @@
-import React from "react";
+import { useState } from "react";
+import { OrderModal } from "../OrderModal/OrderModal";
 import { useCart } from "../../contexts/cart-context";
 
 const CartSummary = () => {
+  const [showModal, setShowModal] = useState(false);
   const {
     cartState: { cart },
+    cartDispatch,
   } = useCart();
   const totalAmt = cart.reduce(
     (acc, cur) => Number(cur.price) * Number(cur.qty) + acc,
@@ -44,11 +47,18 @@ const CartSummary = () => {
           )}
           <div className="v-space-1rem"></div>
 
-          <button className="btn-default btn-primary-solid cart-btn">
+          <button
+            className="btn-default btn-primary-solid cart-btn"
+            onClick={() => {
+              cartDispatch({ type: "CLEAR_CART" });
+              setShowModal(true);
+            }}
+          >
             Place order
           </button>
         </div>
       )}
+      {showModal && <OrderModal setShowModal={setShowModal} />}
     </>
   );
 };
