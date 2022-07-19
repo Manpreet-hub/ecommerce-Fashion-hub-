@@ -12,14 +12,20 @@ const CartItem = ({ item }) => {
       {cart.map((item) => {
         return (
           <div className="horizontal-card product-card">
-            <img
-              className="card-img product-img"
-              src={item.img}
-              alt="product-img"
-            />
+            <div className="horizontal-img-container">
+              <img
+                className="card-img product-img horizontal-card-img "
+                src={item.img}
+                alt="product-img"
+              />
+            </div>
+
             <div className="card-body">
               <h4 className="card-title card-text"> {item.title}</h4>
-              <p className="card-text">₹{item.price}</p>
+              <p className="card-text">
+                ₹{item.price}
+                <s className="price-strike"> ₹{item.originalPrice}</s>
+              </p>
               <div className="quantity card-text">
                 <p>
                   <label>Quantity:</label>

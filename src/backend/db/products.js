@@ -42,15 +42,65 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Bon Organik Rang Barse Holi Tshirt For Boys",
+    title:
+      " Infant wear Kids-wear Baby Boy Girl Clothes T-shirt Pant Set 100% Cotton Blue",
     img: "https://res.cloudinary.com/dffedqurw/image/upload/v1649316236/samples/61EW3tDSMaL._AC_UL480_FMwebp_QL65__gi6tmk.webp",
+    price: 1099,
+    category: "Kids",
+    inStock: true,
+    fastDelivery: true,
+    rating: 3,
+    originalPrice: 2200,
+  },
+
+  {
+    _id: uuid(),
+    title:
+      "Women's Grey Cotton Abstract Printed Unstitched Salwar Suit Material",
+    img: "https://m.media-amazon.com/images/I/91QLglbhFjL._UX569_.jpg",
+    price: 3999,
+    category: "Women",
+    inStock: true,
+    fastDelivery: true,
+    rating: 4,
+    originalPrice: 4599,
+  },
+  {
+    _id: uuid(),
+    title: "Bon Organik Rang Barse Holi Tshirt For Boys",
+    img: "https://m.media-amazon.com/images/I/81-XVctkfDL._UX679_.jpg",
     price: 2199,
-    category: "kids",
+    category: "Kids",
     inStock: true,
     fastDelivery: true,
     rating: 4,
     originalPrice: 3200,
   },
+
+  {
+    _id: uuid(),
+    title: "Women's Crepe Printed Unstitiched Dress Material",
+    img: "https://m.media-amazon.com/images/I/719i3bxckTL._UY741_.jpg",
+    price: 2999,
+    category: "Women",
+    inStock: true,
+    fastDelivery: true,
+    rating: 2,
+    originalPrice: 4999,
+  },
+
+  {
+    _id: uuid(),
+    title: "TENDERCARE Baby Boy's & Baby Girl's Jumbo The Elephant Dungaree ",
+    img: "https://m.media-amazon.com/images/I/61cVfAWys7L._UX679_.jpg",
+    price: 1149,
+    category: "Kids",
+    inStock: true,
+    fastDelivery: true,
+    rating: 2,
+    originalPrice: 1900,
+  },
+
   {
     _id: uuid(),
     title: "Men's Slim Fit Full Sleeves Printed Casual Shirt",
@@ -108,7 +158,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Jockey Men's Regular Fit Round Neck Half Sleeved T-Shirt",
+    title: "Jockey Men's Regular Fit Round Neck T-Shirt",
     img: "https://res.cloudinary.com/dffedqurw/image/upload/v1647943884/photo-1581655353564-df123a1eb820_q8fk7u.jpg",
     price: 1099,
     category: "Men",
@@ -116,5 +166,17 @@ export const products = [
     fastDelivery: true,
     rating: 2,
     originalPrice: 1200,
+  },
+
+  {
+    _id: uuid(),
+    title: "Jockey Men's Gym Muscle Vest",
+    img: "https://m.media-amazon.com/images/I/71X89dtTEzL._UX569_.jpg",
+    price: 1299,
+    category: "Men",
+    inStock: true,
+    fastDelivery: true,
+    rating: 3,
+    originalPrice: 1900,
   },
 ];

@@ -12,11 +12,11 @@ const ProductCard = ({ product }) => {
   } = useWishList();
 
   return (
-    <div className="grid-container">
-      <div className="card product-card">
-        <img className="card-img product-img" src={img} alt="product-img" />
+    <div className="card-container">
+      <div className="card product-card product-card-hover">
+        <img className="card-img product-img " src={img} alt="product-img" />
         <div className="card-body">
-          <h4 className="card-title card-text"> {title}</h4>
+          <h4 className="card-title card-text "> {title}</h4>
           <div className="flex-row space-between">
             <p className="card-text">
               ₹{price} <s className="price-strike"> ₹{originalPrice}</s>

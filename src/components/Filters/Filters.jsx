@@ -46,15 +46,15 @@ const Filters = () => {
           return (
             <div className="category" key={category}>
               <input
-                id="women"
                 type="checkbox"
                 value={category}
+                className="checkbox"
                 checked={filterState.category.includes(category)}
                 onClick={(e) => {
                   filterDispatch({ type: "CATEGORY", payload: e.target.value });
                 }}
               />
-              <label htmlFor="women">{category} Clothing</label>
+              <label>{category} Clothing</label>
             </div>
           );
         })}
@@ -69,6 +69,7 @@ const Filters = () => {
               <input
                 checked={filterState.rating == rating}
                 type="radio"
+                className="radio-btn"
                 name="rating"
                 onClick={(e) =>
                   filterDispatch({ type: "RATING", payload: rating })
@@ -87,6 +88,7 @@ const Filters = () => {
             type="radio"
             id="low-high"
             name="sort"
+            className="radio-btn"
             checked={sortBy === "LOW_TO_HIGH"}
             value="LOW_TO_HIGH"
             onClick={(e) => {
@@ -103,6 +105,7 @@ const Filters = () => {
             type="radio"
             id="high-low"
             name="sort"
+            className="radio-btn"
             checked={sortBy === "HIGH_TO_LOW"}
             value="HIGH_TO_LOW"
             onClick={(e) => {

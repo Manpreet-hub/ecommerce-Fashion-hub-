@@ -10,12 +10,10 @@ const getsortedProducts = (products, sortBy) => {
 
 const getCategoryFilter = (products, category) => {
   if (category.length === 0) return products;
-
   return products.filter((item) => category.includes(item.category));
 };
 
 const getRatedFilter = (products, rating) => {
-  console.log(rating);
   if (rating) return products.filter((item) => item.rating >= rating);
 
   return products;
@@ -27,9 +25,18 @@ const getPricedFilter = (products, price) => {
   return products;
 };
 
+const getSearchedProducts = (products, search) => {
+  if (search)
+    return products.filter((item) =>
+      item.title.toLowerCase().includes(search.toLowerCase())
+    );
+  return products;
+};
+
 export {
   getsortedProducts,
   getCategoryFilter,
   getRatedFilter,
   getPricedFilter,
+  getSearchedProducts,
 };

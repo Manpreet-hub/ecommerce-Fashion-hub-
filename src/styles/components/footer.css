@@ -1,5 +1,5 @@
 .footer{
-    min-height: 8rem;
+    min-height: 10rem;
     background-color: var(--bg-dark-color);
 	width: 100%;
 	padding: 1.5rem;
@@ -14,6 +14,9 @@
     align-items: center;
 }
 
+.footer-title{
+    margin-top: 1.4rem;
+}
 .footer-links i {
     padding: 1rem;       
     font-size: 1rem;

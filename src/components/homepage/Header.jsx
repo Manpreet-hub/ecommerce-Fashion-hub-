@@ -1,6 +1,11 @@
 import "../../styles/components/header.css";
 import { Link } from "react-router-dom";
-import { useCart, useWishList, useAuth } from "../../contexts/";
+import {
+  useCart,
+  useWishList,
+  useAuth,
+  useProductFilters,
+} from "../../contexts/";
 import { toast } from "react-toastify";
 
 const Header = () => {
@@ -14,6 +19,10 @@ const Header = () => {
   const {
     wishlistState: { wishlist },
   } = useWishList();
+  const {
+    filterState: { search },
+    filterDispatch,
+  } = useProductFilters();
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
@@ -27,11 +36,23 @@ const Header = () => {
   return (
     <div className="navbar">
       <div className="nav-title">
-        <Link to="/">Fashion-hub</Link>
+        <Link to="/" className="nav-title">
+          Fashion-hub
+        </Link>
       </div>
       <div className="search-box">
-        <i className="search-icon fas fa-search" aria-hidden="true"></i>
-        <input className="search-bar" type="text" placeholder="Search" />
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) =>
+            filterDispatch({ type: "SEARCH_QUERY", payload: e.target.value })
+          }
+        />
+        <div className="search-icon">
+          <i className=" fas fa-search" aria-hidden="true"></i>
+        </div>
       </div>
 
       <div className="navbar-section">
