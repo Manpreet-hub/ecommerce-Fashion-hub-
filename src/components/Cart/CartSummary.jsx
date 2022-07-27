@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { OrderModal } from "../OrderModal/OrderModal";
 import { useCart } from "../../contexts/cart-context";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const CartSummary = () => {
+const CartSummary = ({
+  checkedAddressSelector,
+  placeholder,
+  printAddressData,
+}) => {
   const [showModal, setShowModal] = useState(false);
   const {
     cartState: { cart },
     cartDispatch,
   } = useCart();
+  const navigate = useNavigate();
   const totalAmt = cart.reduce(
     (acc, cur) => Number(cur.price) * Number(cur.qty) + acc,
     0
@@ -15,6 +21,68 @@ const CartSummary = () => {
   const totalItem = cart.reduce((acc, cur) => Number(cur.qty) + acc, 0);
   const deliveryCharges = 100;
   const finalAmt = totalAmt + deliveryCharges;
+
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+  async function checkoutHandler() {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Something went Wrong. Are you online?");
+      return;
+    }
+    const options = {
+      key: "rzp_test_4IGRK6rH6D7DRo",
+      amount: finalAmt * 100,
+      currency: "INR",
+      name: "Fashion-hub",
+      description: "Thank you for shopping with us",
+      handler: function (response) {
+        navigate("/orderSummary");
+        cartDispatch({
+          type: "CHECKOUT_ORDER",
+          payload: response.razorpay_payment_id,
+        });
+        cartDispatch({ type: "CLEAR_CART" });
+      },
+      prefill: {
+        name: "Manpreet Singh",
+        email: "manpreet@gmail.com",
+        contact: "9023046719",
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  }
+
+  const placeOrderHandler = () => {
+    if (printAddressData.length === 0) {
+      toast.info("Select an address to proceed!");
+      return;
+    }
+    checkoutHandler();
+  };
 
   return (
     <>
@@ -47,18 +115,29 @@ const CartSummary = () => {
           )}
           <div className="v-space-1rem"></div>
 
-          <button
-            className="btn-default btn-primary-solid cart-btn"
-            onClick={() => {
-              cartDispatch({ type: "CLEAR_CART" });
-              setShowModal(true);
-            }}
-          >
-            Place order
-          </button>
+          {placeholder === "placeholder" ? (
+            <button className="btn-default btn-primary-solid cart-btn">
+              <Link to="/address"> Place order</Link>
+            </button>
+          ) : (
+            <button
+              className={
+                checkedAddressSelector || printAddressData.length === 0
+                  ? "btn-default btn-primary-solid cart-btn"
+                  : "btn-default"
+              }
+              disabled={
+                checkedAddressSelector || printAddressData.length === 0
+                  ? false
+                  : true
+              }
+              onClick={placeOrderHandler}
+            >
+              Proceed to pay
+            </button>
+          )}
         </div>
       )}
-      {showModal && <OrderModal setShowModal={setShowModal} />}
     </>
   );
 };

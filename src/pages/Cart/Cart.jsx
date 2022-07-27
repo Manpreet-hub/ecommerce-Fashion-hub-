@@ -13,7 +13,7 @@ function Cart() {
       <h2 class="txt-header-color txt-center">My Cart ( {cart.length})</h2>
       <div class="v-space-2rem"></div>
       <div class="cart">{cart.length !== 0 ? <CartItem /> : <EmptyCart />}</div>
-      <CartSummary />
+      <CartSummary placeholder="placeholder" />
     </div>
   );
 }

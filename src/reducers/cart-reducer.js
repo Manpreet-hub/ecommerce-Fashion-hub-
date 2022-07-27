@@ -1,5 +1,6 @@
 const cartInitialState = {
   cart: [],
+  checkout: "",
 };
 
 const cartReducer = (state, action) => {
@@ -24,6 +25,8 @@ const cartReducer = (state, action) => {
       };
     case "CLEAR_CART":
       return { ...state, cart: [] };
+    case "CHECKOUT_ORDER":
+      return { ...state, checkout: action.payload };
     default:
       return state;
   }
