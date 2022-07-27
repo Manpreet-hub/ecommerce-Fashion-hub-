@@ -63,7 +63,6 @@ export const AddressCard = () => {
     setIsEdit(editedAddress);
     setToggleBtn(false);
     setShowModal(true);
-    console.log(address);
   };
 
   const changeHandler = (e) => {
