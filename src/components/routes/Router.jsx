@@ -6,6 +6,8 @@ import {
   Products,
   Cart,
   WishlistProducts,
+  Address,
+  OrderSummary,
 } from "../../pages/";
 import { useAuth } from "../../contexts";
 import { ToastContainer } from "react-toastify";
@@ -42,7 +44,24 @@ const Router = () => {
             </ProtectedRoutes>
           }
         />
+        <Route
+          path="/address"
+          element={
+            <ProtectedRoutes>
+              <Address />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/orderSummary"
+          element={
+            <ProtectedRoutes>
+              <OrderSummary />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
+
       <ToastContainer />
     </>
   );
