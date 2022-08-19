@@ -10,7 +10,7 @@ const Filters = () => {
       <div className="flex-row space-between container-box">
         <h3>Filters</h3>
         <p
-          className="clear-filter"
+          className="hover-effect"
           onClick={(e) => filterDispatch({ type: "CLEAR_ALL" })}
         >
           <u>Clear</u>
@@ -25,10 +25,9 @@ const Filters = () => {
             <option value="5000" label="5000"></option>
           </div>
           <input
-            className="price-range"
+            className="price-range hover-effect"
             type="range"
-            name=""
-            step="1000"
+            step="100"
             min="1000"
             max="5000"
             value={price}
@@ -48,7 +47,7 @@ const Filters = () => {
               <input
                 type="checkbox"
                 value={category}
-                className="checkbox"
+                className="checkbox hover-effect"
                 checked={filterState.category.includes(category)}
                 onClick={(e) => {
                   filterDispatch({ type: "CATEGORY", payload: e.target.value });
@@ -69,7 +68,7 @@ const Filters = () => {
               <input
                 checked={filterState.rating == rating}
                 type="radio"
-                className="radio-btn"
+                className="radio-btn hover-effect"
                 name="rating"
                 onClick={(e) =>
                   filterDispatch({ type: "RATING", payload: rating })
@@ -88,7 +87,7 @@ const Filters = () => {
             type="radio"
             id="low-high"
             name="sort"
-            className="radio-btn"
+            className="radio-btn hover-effect"
             checked={sortBy === "LOW_TO_HIGH"}
             value="LOW_TO_HIGH"
             onClick={(e) => {
