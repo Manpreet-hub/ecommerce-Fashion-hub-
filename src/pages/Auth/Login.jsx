@@ -88,11 +88,11 @@ const Login = () => {
             type="submit"
             onClick={loginAsGuest}
           >
-            Login As Guest
+            Fill test credentials
           </button>
 
           <div className="create">
-            <Link to="/signup">Create new account</Link>
+            <Link to="/signup">Create new account 👉</Link>
           </div>
         </form>
       </div>
