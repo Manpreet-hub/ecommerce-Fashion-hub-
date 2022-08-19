@@ -90,7 +90,7 @@ export const AddressModal = ({
             </label>
             <div>
               {toggleBtn ? (
-                <button className="btn-default" onClick={addressHandler}>
+                <button className="btn-default" type="submit">
                   Save
                 </button>
               ) : (

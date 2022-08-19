@@ -1,15 +1,64 @@
-import { useCart, useWishList } from "../../contexts/";
-import { Link } from "react-router-dom";
+import { useCart, useWishList, useAuth } from "../../contexts/";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const ProductCard = ({ product }) => {
-  const { cartState, cartDispatch } = useCart();
-  const { cart } = cartState;
-  const { title, rating, price, img, originalPrice } = product;
+  const {
+    cartState: { cart },
+    cartDispatch,
+  } = useCart();
+  const {
+    authState: { isAuthenticated },
+  } = useAuth();
   const {
     wishlistState: { wishlist },
     wishlistDispatch,
   } = useWishList();
+
+  const navigate = useNavigate();
+  const { title, rating, price, img, originalPrice } = product;
+
+  const addToCart = () => {
+    if (isAuthenticated) {
+      cartDispatch({
+        type: "ADD_TO_CART",
+        payload: product,
+      });
+      toast.success("Product Added to Cart", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    } else {
+      toast.error("Please Login First", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+      navigate("/login");
+    }
+  };
+
+  const addToWishlist = () => {
+    if (isAuthenticated) {
+      wishlistDispatch({
+        type: "ADD_TO_WISHLIST",
+        payload: product,
+      });
+      cartDispatch({
+        type: "REMOVE_FROM_CART",
+        payload: product.id,
+      });
+      toast.success("Product Added to Wishlist", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    } else {
+      toast.error("Please Login First", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="card-container">
@@ -33,16 +82,7 @@ const ProductCard = ({ product }) => {
             ) : (
               <button
                 className="card-btn btn-primary-solid"
-                onClick={() => {
-                  cartDispatch({
-                    type: "ADD_TO_CART",
-                    payload: product,
-                  });
-                  toast.success("Product Added to Cart", {
-                    position: "top-right",
-                    autoClose: 2000,
-                  });
-                }}
+                onClick={addToCart}
               >
                 Add to Cart
               </button>
@@ -54,20 +94,7 @@ const ProductCard = ({ product }) => {
             ) : (
               <button
                 className="card-btn btn-primary-solid"
-                onClick={() => {
-                  wishlistDispatch({
-                    type: "ADD_TO_WISHLIST",
-                    payload: product,
-                  });
-                  cartDispatch({
-                    type: "REMOVE_FROM_CART",
-                    payload: product.id,
-                  });
-                  toast.success("Product Added to Wishlist", {
-                    position: "top-right",
-                    autoClose: 2000,
-                  });
-                }}
+                onClick={addToWishlist}
               >
                 Add to wishlist
               </button>

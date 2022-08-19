@@ -18,17 +18,19 @@ const Products = () => {
   const categoryFilter = getCategoryFilter(pricedFilter, category);
   const filteredAfterSearch = getSearchedProducts(categoryFilter, search);
 
+  window.scroll(0, 0);
+
   return (
     <>
       <Header />
       <Filters />
       <div className="main-container">
         <p className="products-qty">
-          Showing all products ({categoryFilter.length} products)
+          Showing all products ({filteredAfterSearch.length} products)
         </p>
         <div className="product-container">
           {filteredAfterSearch.map((product) => {
-            return <ProductCard product={product} />;
+            return <ProductCard key={product._id} product={product} />;
           })}
         </div>
       </div>
